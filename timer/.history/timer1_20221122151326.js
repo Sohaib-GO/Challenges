@@ -5,7 +5,7 @@ const arg = process.argv.slice(2);
 for (let time of arg) {
   if (time < 0) {
     break;
-  } else if (time >= 1) {
+  } else if (time > 1) {
     setTimeout(() => {
       // Beep sound
       process.stdout.write("\x07");
