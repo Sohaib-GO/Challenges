@@ -13,7 +13,7 @@ request(URL, (error, response, body) => {
   if (error) {
     console.log("Error:", error);
     return;
-  } else if (PATH || URL === undefined) {
+  } else if (PATH === undefined || URL === undefined) {
     console.log("Error: Please enter a valid URL or path");
     return;
   } else if (fs.existsSync(PATH)) {
