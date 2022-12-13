@@ -1,0 +1,1 @@
+Get currently enrolled students' average assignment completion time
