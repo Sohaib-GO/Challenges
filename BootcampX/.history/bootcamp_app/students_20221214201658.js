@@ -7,6 +7,8 @@ const pool = new Pool({
   database: "bootcampx",
 });
 
+
+
 // a user can pass in a cohort name as a command line argument and the second argument will be the limit of the number of results to return
 const cohortName = process.argv[2];
 const limit = process.argv[3] || 5; // default limit to 5
@@ -18,8 +20,13 @@ pool
   JOIN cohorts ON cohorts.id = cohort_id
   WHERE cohorts.name LIKE $1
   LIMIT $2;
-  `,
+  `
+    // use parameterized queries
+    // pass in the cohortName as the first value of the array
+    // pass in the limit as the second value of the array
+    ,
     [`%${cohortName}%`, limit]
+    
   )
   .then((res) => {
     res.rows.forEach((user) => {
